@@ -1,0 +1,14 @@
+{
+    "userid":"1",
+    "useremail":"ber",
+    "userpassword":"123",
+    "status":"active",
+    "valid_until":"1603317600",
+    "businessname":"Bernard",
+    "latitude":"-26.692621",
+    "longitude":"27.093653",
+    "phonenumber":"0987456321",
+    "specialcount":"0",
+    "reference_no":"",
+    "specialcountlimit":"5"
+},
