@@ -72,7 +72,7 @@ class _ShowDetailsState extends State<ShowDetails> {
           ),
           backgroundColor: Color.fromRGBO(51, 120, 180, 1),
           title:
-              Center(child: Image.asset('Fotos/logo.png', fit: BoxFit.cover)),
+              Center(child: Text("Specials Fest")),
           elevation: 0.0,
         ),
         body: FormUI());

@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(51, 120, 180, 1),
-          title: Center(child:Image.asset('Fotos/logo.png', fit: BoxFit.cover)),
+          title: Center(child:Text("Specials Fest")),
           elevation: 0.0,
         ),
         body: RefreshIndicator(
