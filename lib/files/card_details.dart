@@ -24,12 +24,14 @@ class _ShowDetailsState extends State<ShowDetails> {
   final _longController = new TextEditingController();
   bool _validateLong = false;
   final _refController = new TextEditingController();
+  final _limController = new TextEditingController();
 
   final FocusNode _businessFocus = FocusNode();
   final FocusNode _emailFocus = FocusNode();
   final FocusNode _latFocus = FocusNode();
   final FocusNode _longFocus = FocusNode();
   final FocusNode _refFocus = FocusNode();
+  final FocusNode _limFocus = FocusNode();
 
   bool bUpdatePressed = false;
   bool bStatus = true;
@@ -43,6 +45,8 @@ class _ShowDetailsState extends State<ShowDetails> {
     _latController.text = widget.usercardd.latitude;
     _longController.text = widget.usercardd.longitude;
     _refController.text = widget.usercardd.referenceNo;
+    _limController.text = widget.usercardd.specialslimit;
+    print(_limController.text);
     if (widget.usercardd.status == 'active') {
       bStatus = true;
     } else {
@@ -58,6 +62,7 @@ class _ShowDetailsState extends State<ShowDetails> {
     _latController.dispose();
     _longController.dispose();
     _refController.dispose();
+    _limController.dispose();
     super.dispose();
   }
 
@@ -169,6 +174,23 @@ class _ShowDetailsState extends State<ShowDetails> {
               focusNode: _longFocus,
               onSubmitted: (term) {
                 _longFocus.unfocus();
+                FocusScope.of(context).requestFocus(_limFocus);
+              },
+            ),
+            new TextField(
+              style: new TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                labelText: 'Specials Limit',
+                labelStyle: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              keyboardType: TextInputType.number,
+              controller: _limController,
+              maxLength: 1,
+              focusNode: _limFocus,
+              onSubmitted: (term) {
+                _limFocus.unfocus();
                 FocusScope.of(context).requestFocus(_refFocus);
               },
             ),
@@ -250,6 +272,7 @@ class _ShowDetailsState extends State<ShowDetails> {
       "latitude": _latController.text,
       "longitude": _longController.text,
       "referenceNo": _refController.text,
+      "specialslimit": _limController.text
     });
     print(_emailController.text);
     print(result.body);
@@ -286,6 +309,7 @@ class _ShowDetailsState extends State<ShowDetails> {
             ),
             onPressed: () {
               widget.usercardd.referenceNo = _refController.text;
+              widget.usercardd.specialslimit = _limController.text;
               widget.usercardd.businessname = _busController.text;
               widget.usercardd.latitude = _latController.text;
               widget.usercardd.longitude = _longController.text;
